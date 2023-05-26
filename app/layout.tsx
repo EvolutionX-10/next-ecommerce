@@ -14,7 +14,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 	return (
 		<html lang="en">
-			<body className="mx-64 min-h-screen">
+			<body className="mx-8 min-h-screen lg:mx-60">
 				<Nav user={session?.user} expires={session?.expires ?? ""} />
 				{children}
 			</body>
