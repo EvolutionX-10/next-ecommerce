@@ -28,6 +28,8 @@
 		"@next-auth/prisma-adapter": "1.0.6",
 		"@prisma/client": "4.14.1",
 		"next-auth": "4.22.1",
+		"prettier": "2.8.8",
+		"prettier-plugin-tailwindcss": "0.3.0",
 		"prisma": "4.14.1",
 		"ts-node": "10.9.1"
 	}
