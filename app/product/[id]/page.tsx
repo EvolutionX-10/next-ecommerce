@@ -1,8 +1,10 @@
 import { PriceFormatter } from "@/util/PriceFormatter";
 import Image from "next/image";
+import AddCart from "./AddCart";
 
 export default async function Product({ searchParams }: ProductPageProps) {
-	const { name, image, description, unit_amount } = searchParams;
+	const { name, image, description, unit_amount, id } = searchParams;
+
 	return (
 		<div className="flex flex-wrap justify-between gap-4 p-2 text-gray-700 sm:flex-nowrap md:gap-24 lg:p-12">
 			<Image
@@ -18,9 +20,7 @@ export default async function Product({ searchParams }: ProductPageProps) {
 				<div className="flex gap-2">
 					<p className="font-bold text-teal-400">{PriceFormatter(+unit_amount)}</p>
 				</div>
-				<button className="my-12 rounded-md bg-teal-700 px-6 py-2 font-medium text-white">
-					Add to Cart
-				</button>
+				<AddCart id={id} image={image} name={name} quantity={1} unit_amount={+unit_amount} />
 			</div>
 		</div>
 	);

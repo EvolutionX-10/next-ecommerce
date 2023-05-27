@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import type { Metadata } from "next";
+import Hydrate from "./components/Hydrate";
 
 export const metadata: Metadata = {
 	title: "Styled",
@@ -15,8 +16,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 	return (
 		<html lang="en">
 			<body className="mx-8 min-h-screen lg:mx-60">
-				<Nav user={session?.user} expires={session?.expires ?? ""} />
-				{children}
+				<Hydrate>
+					<Nav user={session?.user} expires={session?.expires ?? ""} />
+					{children}
+				</Hydrate>
 			</body>
 		</html>
 	);
