@@ -32,7 +32,7 @@ export default function Cart() {
 			initial={{ opacity: 0, scale: 0.5, rotateZ: -30 }}
 			className="flex flex-col items-center gap-12 pt-56 text-2xl font-medium opacity-75"
 		>
-			<h1>Ohhh noo.... It's empty 😢</h1>
+			<h1 className="text-center">Ohhh no.. It's empty! 😢</h1>
 			<Image src={cartImg} alt="cart" width={200} height={200} />
 		</motion.div>
 	);
