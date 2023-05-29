@@ -23,6 +23,8 @@ export const useCartStore = create<CartStore>()(
 			addToCart: (product) =>
 				set((state) => {
 					const index = state.cart.findIndex((item) => item.id === product.id);
+					console.log(`Index: ${index}`);
+					console.log(`Product: ${product.name}`);
 					if (index === -1) {
 						return {
 							cart: [...state.cart, { ...product, quantity: 1 }],
