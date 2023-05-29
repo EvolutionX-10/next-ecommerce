@@ -22,11 +22,8 @@ export const useCartStore = create<CartStore>()(
 			toggleCart: () => set((state) => ({ isOpen: !state.isOpen })),
 			addToCart: (product) =>
 				set((state) => {
-					console.log(state.cart);
 					const index = state.cart.findIndex((item) => item.id === product.id);
-					console.log(`Index: ${index}`);
-					console.log(product);
-					// console.log(state.cart[index]);
+
 					if (index === -1) {
 						return {
 							cart: [...state.cart, { ...product, quantity: 1 }],
@@ -47,7 +44,6 @@ export const useCartStore = create<CartStore>()(
 							cart: [...state.cart],
 						};
 					} else {
-						// if quantity is 1, remove the item from the cart
 						if (state.cart[index].quantity === 1) {
 							return {
 								cart: state.cart.filter((item) => item.id !== product.id),

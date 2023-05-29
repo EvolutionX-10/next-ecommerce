@@ -6,9 +6,6 @@ export default function Cart(
 	item: Pick<CartItem, "name" | "id" | "unit_amount" | "quantity" | "image">
 ) {
 	const cart = useCartStore();
-	console.log("Log from AddCart");
-	console.log(item);
-	console.log("-----------------------");
 	return (
 		<button
 			onClick={() => cart.addToCart(item)}
