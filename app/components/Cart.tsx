@@ -14,20 +14,15 @@ export default function Cart() {
 	}, 0);
 
 	const cartDisplay = (
-		<>
-			<button onClick={cart.toggleCart} className="pb-8 text-sm font-bold">
-				Back to Store 🏃🏻
-			</button>
-			<motion.div layout>
-				{cart.cart.map((item) => (
-					<CartItem key={item.id} {...item} />
-				))}
-				<h2 className="mt-4 p-2">
-					Total: <span className="font-bold">{PriceFormatter(price)}</span>
-				</h2>
-				<button className="mt-4 w-full rounded-md bg-teal-700 py-2 text-white">Checkout</button>
-			</motion.div>
-		</>
+		<motion.div layout>
+			{cart.cart.map((item) => (
+				<CartItem key={item.id} {...item} />
+			))}
+			<h2 className="mt-4 p-2">
+				Total: <span className="font-bold">{PriceFormatter(price)}</span>
+			</h2>
+			<button className="mt-4 w-full rounded-md bg-teal-700 py-2 text-white">Checkout</button>
+		</motion.div>
 	);
 
 	const cartEmpty = (
@@ -58,6 +53,9 @@ export default function Cart() {
 				onClick={(e) => e.stopPropagation()}
 				className="absolute right-0 top-0 min-h-screen w-full bg-white p-12 text-gray-700 md:w-2/5"
 			>
+				<button onClick={cart.toggleCart} className="pb-8 text-sm font-bold">
+					Back to Store 🏃🏻
+				</button>
 				<AnimatePresence>{cart.cart.length === 0 ? cartEmpty : cartDisplay}</AnimatePresence>
 			</motion.div>
 		</motion.div>
