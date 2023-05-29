@@ -4,9 +4,13 @@ import { useCartStore } from "@/store";
 import CartItem from "./CartItem";
 import Image from "next/image";
 import cartImg from "@/public/cart.svg";
+import { PriceFormatter } from "@/util/PriceFormatter";
 
 export default function Cart() {
 	const cart = useCartStore();
+	const price = cart.cart.reduce((a, b) => {
+		return a + b.quantity * b.unit_amount;
+	}, 0);
 
 	const cartDisplay = (
 		<>
@@ -14,6 +18,9 @@ export default function Cart() {
 			{cart.cart.map((item) => (
 				<CartItem key={item.id} {...item} />
 			))}
+			<h2 className="mt-4 p-2">
+				Total: <span className="font-bold">{PriceFormatter(price)}</span>
+			</h2>
 			<button className="mt-4 w-full rounded-md bg-teal-700 py-2 text-white">Checkout</button>
 		</>
 	);
