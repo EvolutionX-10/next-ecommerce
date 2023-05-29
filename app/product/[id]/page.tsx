@@ -3,8 +3,8 @@ import Image from "next/image";
 import AddCart from "./AddCart";
 
 export default async function Product({ searchParams, params }: ProductPageProps) {
-	const { name, image, description, unit_amount, id } = searchParams;
-	console.log(params);
+	let { name, image, description, unit_amount, id } = searchParams;
+	id ??= params.id;
 
 	return (
 		<div className="flex flex-wrap justify-between gap-4 p-2 text-gray-700 sm:flex-nowrap md:gap-24 lg:p-12">
