@@ -25,6 +25,8 @@ export const useCartStore = create<CartStore>()(
 					const index = state.cart.findIndex((item) => item.id === product.id);
 					console.log(`Index: ${index}`);
 					console.log(`Product: ${product.name}`);
+					console.log(`ID: ${product.id}`);
+					console.log(state.cart[index]);
 					if (index === -1) {
 						return {
 							cart: [...state.cart, { ...product, quantity: 1 }],
