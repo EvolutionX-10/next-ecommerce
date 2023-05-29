@@ -2,9 +2,9 @@ import { PriceFormatter } from "@/util/PriceFormatter";
 import Image from "next/image";
 import AddCart from "./AddCart";
 
-export default async function Product({ searchParams }: ProductPageProps) {
+export default async function Product({ searchParams, params }: ProductPageProps) {
 	const { name, image, description, unit_amount, id } = searchParams;
-	console.log(searchParams);
+	console.log(params);
 
 	return (
 		<div className="flex flex-wrap justify-between gap-4 p-2 text-gray-700 sm:flex-nowrap md:gap-24 lg:p-12">
