@@ -2,11 +2,12 @@ import { CartItem, useCartStore } from "@/store";
 import { PriceFormatter } from "@/util/PriceFormatter";
 import Image from "next/image";
 import { IoAddCircle, IoRemoveCircle } from "react-icons/io5";
+import { motion } from "framer-motion";
 
 export default function CartItem(item: CartItem) {
 	const cart = useCartStore();
 	return (
-		<div className="flex gap-4 py-4">
+		<motion.div layout className="flex gap-4 py-4">
 			<Image
 				className="h-24 w-24 rounded-md object-cover"
 				src={item.image}
@@ -27,6 +28,6 @@ export default function CartItem(item: CartItem) {
 				</div>
 				<p className="text-sm">{PriceFormatter(item.unit_amount)}</p>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
