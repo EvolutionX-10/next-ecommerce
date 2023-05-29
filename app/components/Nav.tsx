@@ -11,7 +11,7 @@ import { AiFillShopping } from "react-icons/ai";
 export default function Nav({ user }: Session) {
 	const cart = useCartStore();
 	return (
-		<nav className="mb-12 mt-6 flex items-center justify-between">
+		<nav className="flex items-center justify-between pb-12 pt-6">
 			<Link href={"/"}>
 				<h1>Styled</h1>
 			</Link>
