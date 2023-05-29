@@ -11,6 +11,7 @@ interface CartStore {
 	isOpen: boolean;
 	toggleCart: () => void;
 	addToCart: (product: CartItem) => void;
+	removeFromCart: (product: CartItem) => void;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -30,6 +31,27 @@ export const useCartStore = create<CartStore>()(
 						return {
 							cart: state.cart.map((item, i) =>
 								i === index ? { ...item, quantity: item.quantity + 1 } : item
+							),
+						};
+					}
+				}),
+			removeFromCart: (product) =>
+				set((state) => {
+					const index = state.cart.findIndex((item) => item.id === product.id);
+					if (index === -1) {
+						return {
+							cart: [...state.cart],
+						};
+					} else {
+						// if quantity is 1, remove the item from the cart
+						if (state.cart[index].quantity === 1) {
+							return {
+								cart: state.cart.filter((item) => item.id !== product.id),
+							};
+						}
+						return {
+							cart: state.cart.map((item, i) =>
+								i === index ? { ...item, quantity: item.quantity - 1 } : item
 							),
 						};
 					}
