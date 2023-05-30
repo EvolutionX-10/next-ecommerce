@@ -7,13 +7,13 @@ export default async function Product({ searchParams, params }: ProductPageProps
 	id ??= params.id;
 
 	return (
-		<div className="flex flex-wrap justify-between gap-4 p-2 text-gray-700 sm:flex-nowrap md:gap-24 lg:p-12">
+		<div className="flex flex-wrap justify-between gap-4 text-gray-700 sm:flex-nowrap md:gap-24">
 			<Image
 				src={image}
 				alt={name}
 				height={800}
 				width={800}
-				className="h-80 w-full rounded-lg object-cover"
+				className="h-96 w-full rounded-lg object-cover"
 			/>
 			<div className="py-2 font-medium">
 				<h1 className="text-2xl">{name}</h1>

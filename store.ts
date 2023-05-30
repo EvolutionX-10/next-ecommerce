@@ -9,9 +9,13 @@ export interface CartItem extends Omit<Product, "metadata" | "description" | "cu
 interface CartStore {
 	cart: CartItem[];
 	isOpen: boolean;
+	paymentIntent: string;
+	checkout: string;
+	setPaymentIntent: (intent: string) => void;
 	toggleCart: () => void;
 	addToCart: (product: CartItem) => void;
 	removeFromCart: (product: CartItem) => void;
+	setCheckout: (checkout: string) => void;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -19,6 +23,8 @@ export const useCartStore = create<CartStore>()(
 		(set) => ({
 			cart: [],
 			isOpen: false,
+			paymentIntent: "",
+			checkout: "cart",
 			toggleCart: () => set((state) => ({ isOpen: !state.isOpen })),
 			addToCart: (product) =>
 				set((state) => {
@@ -56,9 +62,15 @@ export const useCartStore = create<CartStore>()(
 						};
 					}
 				}),
+			setPaymentIntent: (intent) => set(() => ({ paymentIntent: intent })),
+			setCheckout: (checkout) => set(() => ({ checkout })),
 		}),
 		{
 			name: "cart-store",
 		}
 	)
 );
+
+export const calculateTotal = (cart: CartItem[]) => {
+	return cart.reduce((acc, item) => acc + item.unit_amount * item.quantity, 0);
+};

@@ -6,6 +6,7 @@ import Image from "next/image";
 import cartImg from "@/public/cart.svg";
 import { PriceFormatter } from "@/util/PriceFormatter";
 import { motion, AnimatePresence } from "framer-motion";
+import Checkout from "./Checkout";
 
 export default function Cart() {
 	const cart = useCartStore();
@@ -21,9 +22,18 @@ export default function Cart() {
 			<h2 className="mt-4 p-2">
 				Total: <span className="font-bold">{PriceFormatter(price)}</span>
 			</h2>
-			<button className="mt-4 w-full rounded-md bg-teal-700 py-2 text-white">Checkout</button>
+			<button
+				onClick={() => cart.setCheckout("checkout")}
+				className="mt-4 w-full rounded-md bg-teal-700 py-2 text-white"
+			>
+				Checkout
+			</button>
 		</motion.div>
 	);
+
+	const checkoutDisplay = <Checkout />;
+
+	const display = cart.checkout === "cart" ? cartDisplay : checkoutDisplay;
 
 	const cartEmpty = (
 		<motion.div
@@ -56,7 +66,7 @@ export default function Cart() {
 				<button onClick={cart.toggleCart} className="pb-8 text-sm font-bold">
 					Back to Store 🏃🏻
 				</button>
-				<AnimatePresence>{cart.cart.length === 0 ? cartEmpty : cartDisplay}</AnimatePresence>
+				<AnimatePresence>{cart.cart.length === 0 ? cartEmpty : display}</AnimatePresence>
 			</motion.div>
 		</motion.div>
 	);
