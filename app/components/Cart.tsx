@@ -7,6 +7,7 @@ import cartImg from "@/public/cart.svg";
 import { PriceFormatter } from "@/util/PriceFormatter";
 import { motion, AnimatePresence } from "framer-motion";
 import Checkout from "./Checkout";
+import OrderSuccess from "./OrderSuccess";
 
 export default function Cart() {
 	const cart = useCartStore();
@@ -33,7 +34,14 @@ export default function Cart() {
 
 	const checkoutDisplay = <Checkout />;
 
-	const display = cart.checkout === "cart" ? cartDisplay : checkoutDisplay;
+	const display =
+		cart.checkout === "cart" ? (
+			cartDisplay
+		) : cart.checkout === "checkout" ? (
+			checkoutDisplay
+		) : cart.checkout === "success" ? (
+			<OrderSuccess />
+		) : null;
 
 	const cartEmpty = (
 		<motion.div
@@ -63,10 +71,19 @@ export default function Cart() {
 				onClick={(e) => e.stopPropagation()}
 				className="absolute right-0 top-0 min-h-screen w-full bg-white p-12 text-gray-700 md:w-2/5"
 			>
-				<button onClick={cart.toggleCart} className="pb-8 text-sm font-bold">
-					Back to Store 🏃🏻
-				</button>
-				<AnimatePresence>{cart.cart.length === 0 ? cartEmpty : display}</AnimatePresence>
+				{cart.checkout === "success" ? null : (
+					<button
+						onClick={() => {
+							cart.checkout === "checkout" ? cart.setCheckout("cart") : cart.toggleCart();
+						}}
+						className="pb-8 text-sm font-bold"
+					>
+						{cart.checkout === "cart" ? "Back to Store 🏃🏻" : "Back to Cart 🛒"}
+					</button>
+				)}
+				<AnimatePresence>
+					{cart.cart.length === 0 && cart.checkout === "cart" ? cartEmpty : display}
+				</AnimatePresence>
 			</motion.div>
 		</motion.div>
 	);

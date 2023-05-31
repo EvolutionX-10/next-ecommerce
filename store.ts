@@ -10,12 +10,13 @@ interface CartStore {
 	cart: CartItem[];
 	isOpen: boolean;
 	paymentIntent: string;
-	checkout: string;
+	checkout: Checkout;
 	setPaymentIntent: (intent: string) => void;
 	toggleCart: () => void;
 	addToCart: (product: CartItem) => void;
 	removeFromCart: (product: CartItem) => void;
-	setCheckout: (checkout: string) => void;
+	clear: () => void;
+	setCheckout: (checkout: Checkout) => void;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -26,6 +27,7 @@ export const useCartStore = create<CartStore>()(
 			paymentIntent: "",
 			checkout: "cart",
 			toggleCart: () => set((state) => ({ isOpen: !state.isOpen })),
+			clear: () => set(() => ({ cart: [] })),
 			addToCart: (product) =>
 				set((state) => {
 					const index = state.cart.findIndex((item) => item.id === product.id);
@@ -74,3 +76,5 @@ export const useCartStore = create<CartStore>()(
 export const calculateTotal = (cart: CartItem[]) => {
 	return cart.reduce((acc, item) => acc + item.unit_amount * item.quantity, 0);
 };
+
+type Checkout = "cart" | "checkout" | "success";
