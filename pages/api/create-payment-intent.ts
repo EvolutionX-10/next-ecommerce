@@ -92,7 +92,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	}
 }
 
-interface CustomSession extends Session {
+export interface CustomSession extends Session {
 	user: {
 		id: string;
 		name: string;

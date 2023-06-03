@@ -21,7 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
 	return (
 		<html lang="en" className={roboto.className}>
-			<body className="mx-8 min-h-screen md:mx-32 lg:mx-60">
+			<body className="min-h-screen px-8 md:px-32 lg:px-60">
 				<Hydrate>
 					<Nav user={session?.user} expires={session?.expires ?? ""} />
 					{children}
