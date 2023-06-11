@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 export default function Hydrate({ children }: { children: ReactNode }) {
 	const [hydrated, setHydrated] = useState(false);

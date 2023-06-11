@@ -1,11 +1,11 @@
 "use client";
 
-import { useCartStore } from "@/store";
-import CartItem from "./CartItem";
-import Image from "next/image";
 import cartImg from "@/public/cart.svg";
+import { useCartStore } from "@/store";
 import { PriceFormatter } from "@/util/PriceFormatter";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import CartItem from "./CartItem";
 import Checkout from "./Checkout";
 import OrderSuccess from "./OrderSuccess";
 

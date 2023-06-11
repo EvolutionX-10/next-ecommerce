@@ -1,13 +1,13 @@
 "use client";
 
-import { loadStripe, type StripeElementsOptions } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { useCartStore } from "@/store";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import CheckoutForm from "./CheckoutForm";
 import CheckoutAnimation from "@/app/components/CheckoutAnimation";
+import { useCartStore } from "@/store";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe, type StripeElementsOptions } from "@stripe/stripe-js";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import CheckoutForm from "./CheckoutForm";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 

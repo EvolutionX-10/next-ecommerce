@@ -1,10 +1,10 @@
-import "./globals.css";
-import Nav from "./components/Nav";
-import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import type { Metadata } from "next";
-import Hydrate from "./components/Hydrate";
+import { getServerSession } from "next-auth/next";
 import { Roboto } from "next/font/google";
+import Hydrate from "./components/Hydrate";
+import Nav from "./components/Nav";
+import "./globals.css";
 
 const roboto = Roboto({
 	weight: ["400", "500", "700"],

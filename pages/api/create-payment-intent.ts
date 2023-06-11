@@ -1,9 +1,9 @@
-import Stripe from "stripe";
-import type { NextApiRequest, NextApiResponse } from "next";
-import { AuthOptions, Session, getServerSession } from "next-auth";
-import { authOptions } from "./auth/[...nextauth]";
 import { calculateTotal } from "@/store";
 import { PrismaClient, type Product } from "@prisma/client";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { AuthOptions, Session, getServerSession } from "next-auth";
+import Stripe from "stripe";
+import { authOptions } from "./auth/[...nextauth]";
 
 const prisma = new PrismaClient();
 

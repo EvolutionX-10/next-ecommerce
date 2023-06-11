@@ -1,8 +1,8 @@
 import { CartItem, useCartStore } from "@/store";
 import { PriceFormatter } from "@/util/PriceFormatter";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { IoAddCircle, IoRemoveCircle } from "react-icons/io5";
-import { motion } from "framer-motion";
 
 export default function CartItem(item: CartItem) {
 	const cart = useCartStore();

@@ -1,11 +1,9 @@
 "use client";
 
-import { useState, useEffect, FormEvent } from "react";
-import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { calculateTotal, useCartStore } from "@/store";
 import { PriceFormatter } from "@/util/PriceFormatter";
-import { useCartStore } from "@/store";
-import { calculateTotal } from "@/store";
-
+import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { FormEvent, useEffect, useState } from "react";
 export default function CheckoutForm({ clientSecret }: CheckoutFormProps) {
 	const stripe = useStripe();
 	const elements = useElements();

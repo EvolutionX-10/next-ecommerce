@@ -1,10 +1,10 @@
 "use client";
 
+import dance from "@/public/dance.webp";
+import { useCartStore } from "@/store";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import dance from "@/public/dance.webp";
 import Link from "next/link";
-import { useCartStore } from "@/store";
 import { useEffect } from "react";
 
 export default function OrderSuccess() {

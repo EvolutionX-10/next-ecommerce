@@ -1,13 +1,13 @@
 "use client";
 
+import { useCartStore } from "@/store";
+import { AnimatePresence, motion } from "framer-motion";
 import type { Session } from "next-auth";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import Cart from "./Cart";
-import { useCartStore } from "@/store";
 import { AiFillShopping } from "react-icons/ai";
-import { motion, AnimatePresence } from "framer-motion";
+import Cart from "./Cart";
 
 export default function Nav({ user }: Session) {
 	const cart = useCartStore();

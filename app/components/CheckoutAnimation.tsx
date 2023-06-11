@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { Player } from "@lottiefiles/react-lottie-player";
 import checkout from "@/public/checkout.json";
+import { Player } from "@lottiefiles/react-lottie-player";
+import { motion } from "framer-motion";
 
 export default function CheckoutAnimation() {
 	return (
