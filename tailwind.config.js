@@ -25,7 +25,12 @@ module.exports = {
 					secondary: "white",
 				},
 			},
-			"dark",
+			{
+				dark: {
+					...require("daisyui/src/theming/themes")["[data-theme=dark]"],
+					secondary: "white",
+				}
+			},
 		],
 	},
 };
