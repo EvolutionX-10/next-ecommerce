@@ -7,10 +7,7 @@ export default function Cart(
 ) {
 	const cart = useCartStore();
 	return (
-		<button
-			onClick={() => cart.addToCart(item)}
-			className="my-12 rounded-md bg-teal-600 px-6 py-2 font-medium text-white"
-		>
+		<button onClick={() => cart.addToCart(item)} className="btn-primary btn-block btn my-12">
 			Add to Cart
 		</button>
 	);

@@ -38,13 +38,11 @@ export default function CheckoutForm({ clientSecret }: CheckoutFormProps) {
 			/>
 			<h1 className="py-4 text-sm font-bold">Total: {PriceFormatter(calculateTotal(cart.cart))}</h1>
 			<button
-				className={`mt-4 w-full rounded-md bg-teal-700 py-2 text-white disabled:opacity-75`}
+				className={`btn-primary btn-block btn mt-4 disabled:opacity-75`}
 				id="submit"
 				disabled={isLoading || !stripe || !elements}
 			>
-				<span id="btn-text">
-					{isLoading ? <span>Processing 👀</span> : <span>Pay Now 🔥</span>}
-				</span>
+				<span id="btn-text">{isLoading ? <span>Processing...</span> : <span>Pay Now</span>}</span>
 			</button>
 		</form>
 	);

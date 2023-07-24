@@ -34,7 +34,7 @@ export default function OrderSuccess() {
 				<Image src={dance} className="my-8 rounded-sm" alt="dancing" />
 				<div className="flex items-center justify-center gap-12 font-medium text-white">
 					<Link href={"/dashboard"}>
-						<button onClick={checkoutOrder} className="rounded-md bg-teal-600 p-2">
+						<button onClick={checkoutOrder} className="btn-primary btn-outline btn">
 							Check your Order
 						</button>
 					</Link>

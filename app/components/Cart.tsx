@@ -25,7 +25,7 @@ export default function Cart() {
 			</h2>
 			<button
 				onClick={() => cart.setCheckout("checkout")}
-				className="mt-4 w-full rounded-md bg-teal-700 py-2 text-white"
+				className="btn-primary btn-block btn mt-4 py-2"
 			>
 				Checkout
 			</button>

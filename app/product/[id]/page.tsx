@@ -11,15 +11,15 @@ export default async function Product({ searchParams, params }: ProductPageProps
 			<Image
 				src={image}
 				alt={name}
-				height={800}
-				width={800}
+				height={1000}
+				width={1000}
 				className="h-96 w-full rounded-lg object-cover"
 			/>
 			<div className="py-2 font-medium">
 				<h1 className="text-2xl">{name}</h1>
 				<p className="text-gray-600">{description}</p>
 				<div className="flex gap-2">
-					<p className="font-bold text-teal-400">{PriceFormatter(+unit_amount)}</p>
+					<p className="font-bold text-gray-500">{PriceFormatter(+unit_amount)}</p>
 				</div>
 				<AddCart id={id} image={image} name={name} quantity={1} unit_amount={+unit_amount} />
 			</div>
